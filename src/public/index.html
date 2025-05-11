@@ -13,20 +13,22 @@
   <main>
 
     <form class="add-cifra" id="add-cifra">
-      <details>
+      <details class="show-btn-tons">
         <summary id="tom-created">Selecione uma opção</summary>
         <div id="show-tons">
 
         </div>
       </details>
 
-      <textarea name="writecifra" id=""></textarea>
+      <textarea name="writecifra" id="writecifra">
+
+      </textarea>
       <button>Criar</button>
     </form>
 
     <section id="container-cifra">
-      <details>
-        <summary id="tom-selected">Selecione uma opção</summary>
+      <details class="show-btn-tons">
+        <summary id="tom-selected">transpor Selecione uma opção</summary>
         <div id="select-tons">
 
         </div>
@@ -37,52 +39,44 @@
 
   <script src="/settings.js"></script>
   <script>
-    const addCifraEl = document.querySelector("#add-cifra")
-    const showTonsEl = document.querySelector("#show-tons")
-    const tomCreatedEl = document.querySelector("#tom-created")
-    const showCifraEl = document.querySelector("#show-cifra")
-    const tomSelectedEl = document.querySelector("#tom-selected")
-    const showSelectedEl = document.querySelector("#select-tons")
-
-    let tomSelected = ""
-    let tomCreated = ""
-    let cifraHTML =
-
-      // MOSTRAR BOTÔES Com TONS
-
-      allNotas.forEach(nota => {
-
-        const btn_selected_nt = document.createElement("button")
-        btn_selected_nt.classList.add("btn_selected_nt")
-        btn_selected_nt.innerHTML = nota
-        btn_selected_nt.setAttribute("type", "button");
-        btn_selected_nt.onclick = (e) => {
-          e.preventDefault
-          tomSelected = nota
-          tomSelectedEl.innerHTML = "Tom: " + tomCreated + " | trans: " + tomSelected
 
 
-          const trans = transporTexto(cifraHTML, tomCreated, tomSelected)
 
-          showCifraEl.innerHTML = trans.replace(/\[([^\]]+)\]/g, '<span class="acorde">$1</span>')
+    // MOSTRAR BOTÔES Com TONS
 
-        }
+    allNotas.forEach(nota => {
 
-        const btn_show_nt = document.createElement("button")
-        btn_show_nt.classList.add("btn_show_nt")
-        btn_show_nt.innerHTML = nota
-        btn_show_nt.setAttribute("type", "button");
-        btn_show_nt.onclick = (e) => {
-          e.preventDefault
-          tomCreated = nota
-          tomCreatedEl.innerHTML = "Tom: " + tomCreated
-
-        }
+      const btn_selected_nt = document.createElement("button")
+      btn_selected_nt.classList.add("btn_selected_nt")
+      btn_selected_nt.innerHTML = nota
+      btn_selected_nt.setAttribute("type", "button");
+      btn_selected_nt.onclick = (e) => {
+        e.preventDefault
+        tomSelected = nota
+        tomSelectedEl.innerHTML = "Tom: " + tomCreated + " | trans: " + tomSelected
 
 
-        showTonsEl.append(btn_show_nt)
-        showSelectedEl.append(btn_selected_nt)
-      });
+        const trans = transporTexto(cifraHTML, tomCreated, tomSelected)
+
+        showCifraEl.innerHTML = trans.replace(/\[([^\]]+)\]/g, '<span class="acorde">$1</span>')
+
+      }
+
+      const btn_show_nt = document.createElement("button")
+      btn_show_nt.classList.add("btn_selected_nt")
+      btn_show_nt.innerHTML = nota
+      btn_show_nt.setAttribute("type", "button");
+      btn_show_nt.onclick = (e) => {
+        e.preventDefault
+        tomCreated = nota
+        tomCreatedEl.innerHTML = "Tom: " + tomCreated
+
+      }
+
+
+      showTonsEl.append(btn_show_nt)
+      showSelectedEl.append(btn_selected_nt)
+    });
 
     // Criar Cifra
     addCifraEl.onsubmit = (e) => {

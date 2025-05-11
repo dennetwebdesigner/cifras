@@ -50,3 +50,56 @@ function transporTexto(texto, tomOrig, tomDest) {
     return `[${novo}]`;
   });
 }
+
+const addCifraEl = document.querySelector("#add-cifra");
+const showTonsEl = document.querySelector("#show-tons");
+const tomCreatedEl = document.querySelector("#tom-created");
+const showCifraEl = document.querySelector("#show-cifra");
+const tomSelectedEl = document.querySelector("#tom-selected");
+const showSelectedEl = document.querySelector("#select-tons");
+
+let tomSelected = "";
+let tomCreated = "G";
+let cifraHTML = "";
+
+tomCreatedEl.innerHTML = "Tom: " + tomCreated;
+
+const cifraExemplo = `
+[Em]                 [C]
+    Porque Dele e por Ele
+        [D]              [Em]
+    Para Ele são todas as coisas 
+   
+            [G]
+    A Ele a glória
+            [G] [D] [Em]
+    A Ele a gló--ò--ria
+            [C] [Bm]
+    A Ele a glória
+                [Em]
+    Pra sempre Amém
+
+[Em]                 [C]
+    Quão profundas riquezas
+        [D]              [Em]
+    O saber e o conhecer de Deus
+              [C]
+    Quão insondáveis
+          [D]            [Em]
+    Seus juízos e Seus caminhos
+
+
+            [G]
+    A Ele a glória
+            [G] [D] [Em]
+    A Ele a gló--ò--ria
+            [C] [Bm]
+    A Ele a glória
+                [Em]
+    Pra sempre Amém
+
+
+`;
+
+const writecifraEl = document.querySelector("#writecifra");
+writecifraEl.innerHTML = cifraExemplo;

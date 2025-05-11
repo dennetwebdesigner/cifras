@@ -11,6 +11,7 @@ main {
   border: 1px solid black;
   margin: 5px auto;
   display: flex;
+  overflow-y: auto;
 }
 
 h1 {
@@ -33,7 +34,7 @@ h1 {
 
 }
 
-.add-cifra details {
+.show-btn-tons {
   width: 70%;
   height: 35px;
   background-color: white;
@@ -41,13 +42,13 @@ h1 {
   position: relative;
 }
 
-.add-cifra details summary {
+.show-btn-tons summary {
   width: 100%;
   height: 30px;
 
 }
 
-.add-cifra details div {
+.show-btn-tons div {
   width: 100%;
   position: absolute;
   z-index: 3;
@@ -58,7 +59,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.add-cifra details div button {
+.btn_selected_nt {
   width: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -67,10 +68,12 @@ h1 {
 
 }
 
-
+.container-cifra {
+  width: 50%;
+}
 
 #show-cifra {
-  width: 50%;
+  width: 100%;
   height: 100%;
   padding: 10px;
 
@@ -79,7 +82,29 @@ h1 {
 .acorde {
   font-weight: bolder;
   color: #ffa600;
-  font-size: 18px;
   text-shadow: 1px 1px px #000000
     /* Traçado nas letras */
+}
+
+@media screen and (max-width: 700px) {
+
+  main {
+    width: 100%;
+    border: none;
+    flex-wrap: wrap;
+
+
+  }
+
+  .container-cifra,
+  .add-cifra {
+    width: 100%;
+  }
+
+  .add-cifra textarea {
+    border: 1px solid black;
+  }
+
+
+
 }
