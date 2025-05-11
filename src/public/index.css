@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 80%;
+
+  height: 90vh;
+  border: 1px solid black;
+  margin: 5px auto;
+  display: flex;
+}
+
+h1 {
+  text-align: center;
+}
+
+.add-cifra {
+  width: 49%;
+  border-right: 1px solid black;
+  height: 100%;
+  padding: 5px;
+}
+
+
+
+.add-cifra textarea {
+  width: 100%;
+  height: 90%;
+  z-index: 1;
+
+}
+
+.add-cifra details {
+  width: 70%;
+  height: 35px;
+  background-color: white;
+  z-index: 2;
+  position: relative;
+}
+
+.add-cifra details summary {
+  width: 100%;
+  height: 30px;
+
+}
+
+.add-cifra details div {
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  background-color: white;
+  box-shadow: 1px 1px 9px black;
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-cifra details div button {
+  width: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 3px;
+  cursor: pointer;
+
+}
+
+
+
+#show-cifra {
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+
+}
+
+.acorde {
+  font-weight: bolder;
+  color: #ffa600;
+  font-size: 18px;
+  text-shadow: 1px 1px px #000000
+    /* Traçado nas letras */
+}
