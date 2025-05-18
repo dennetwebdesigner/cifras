@@ -1,8 +1,7 @@
 import cors from 'cors';
-import ejs from 'ejs';
-import express, { Application, Response } from 'express';
+import express, { Application } from 'express';
 import http, { Server } from 'http';
-import { resolve } from 'path';
+import path from 'path';
 import { Socket, Server as socketServer } from 'socket.io';
 
 import CONNECTIONS from './connection';
@@ -19,16 +18,13 @@ const io = new socketServer(server, {
 
 // Config ====
 app.use(cors());
+
 app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy', "default-src 'self'; font-src 'self' https://cifras-o1jb.onrender.com;");
   next();
 });
 app.use(express.json());
-
-app.use(express.static(resolve(__dirname, 'public')));
-app.set('views', resolve(__dirname, 'public'));
-app.engine('html', ejs.renderFile);
-app.set('views engine', 'html');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Realtime ====
 io.on('connection', (socket: Socket) => {
@@ -43,12 +39,13 @@ io.on('connection', (socket: Socket) => {
   });
 });
 
-// /Realtime ====
-
-app.get('/', async (_, res: Response) => {
-  return res.render('index.html');
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/*sala', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 server.listen(port, () => {
   console.log('Servidor rodando em port: ' + port);
 });
