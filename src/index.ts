@@ -19,6 +19,10 @@ const io = new socketServer(server, {
 
 // Config ====
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; font-src 'self' https://cifras-o1jb.onrender.com;");
+  next();
+});
 app.use(express.json());
 
 app.use(express.static(resolve(__dirname, 'public')));
